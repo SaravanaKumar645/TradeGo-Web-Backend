@@ -31,5 +31,15 @@ const routes = [
     url: "/api/login-user/facebook",
     handler: methods.LoginUserFacebook,
   },
+  {
+    method: "POST",
+    url: "/api/send-reset-mail",
+    handler: methods.SendPasswordResetMail,
+  },
+  {
+    method: "POST",
+    url: "/api/update-user-password",
+    handler: methods.ResetPassword,
+  },
 ];
 module.exports = routes;

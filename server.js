@@ -3,7 +3,8 @@ const connectMongo = require("./config/dbConfig");
 const routes = require("./routes/authRoutes");
 const routesOrder = require("./routes/orderRoutes");
 const routesCart = require("./routes/cartRoutes");
-// /HEROKU LOGGING :heroku logs -a restaurant-web-server --tail
+const routesProduct = require("./routes/productRoutes");
+// /HEROKU LOGGING :heroku logs -a tradego-web-server --tail
 //fastify plugins
 fastify.register(require("fastify-cookie"));
 fastify.register(require("fastify-cors"), {
@@ -25,6 +26,9 @@ const routePlugin = async () => {
     await fastify.route(route);
   });
   routesCart.forEach(async (route) => {
+    await fastify.route(route);
+  });
+  routesProduct.forEach(async (route) => {
     await fastify.route(route);
   });
 };
